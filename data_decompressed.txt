@@ -1,0 +1,7 @@
+PPM is an adaptive statistical data compression technique based on context modeling and prediction. The name stands for Prediction by Partial Matching. PPM models use a set of previous symbols in the uncompressed symbol stream to predict the next symbol in the stream.
+
+Predictions are usually reduced to symbol rankings. The number of previous symbols, n, determines the order of the PPM model which is denoted as PPM(n). Unbounded variants where the context has no length limitations also exist and are denoted as PPM*. If no prediction can be made based on all n context symbols a prediction is attempted with just n-1 symbols. This process is repeated until a match is found or no more symbols remain in context. At that point a fixed prediction is made. This process is the inverse of that followed by DMC compression algorithms which build up from a zero-order model.
+
+Exclusion: if we are using escape codes, when we are in a given context we exclude lower orders from probability computing, because we just take in account the probabilities of current one, that's PPMC using lazy exclusions. If we exclude symbols which have appeared in higher orders from the probability computation that's called full exclusion.
+
+Note: changing the context length will take effect after resetting the applet.
